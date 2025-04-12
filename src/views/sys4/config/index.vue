@@ -24,6 +24,19 @@
           <p>{{ item.label }}</p>
         </div>
       </el-tab-pane>
+      <el-tab-pane :label="`使用教程`" name="step">
+        <p class="stepT">订单号、产品规格、图片网址、产品总数、订单备注、买家账号、买家Email、买家留言</p>
+        <img class="imgSize" src="@/assets/step/image0.png" alt="Dynamic Image">
+        <img class="imgSize" src="@/assets/step/image1-0.png" alt="Dynamic Image">
+        <img class="imgSize" src="@/assets/step/image1-1.png" alt="Dynamic Image">
+        <img class="imgSize" src="@/assets/step/image1-2.png" alt="Dynamic Image">
+        <img class="imgSize" src="@/assets/step/image2.png" alt="Dynamic Image">
+        <img class="imgSize" src="@/assets/step/image3.png" alt="Dynamic Image">
+        <img class="imgSize" src="@/assets/step/image4.png" alt="Dynamic Image">
+        <img class="imgSize" src="@/assets/step/image5.png" alt="Dynamic Image">
+        <img class="imgSize" src="@/assets/step/image6.png" alt="Dynamic Image">
+
+      </el-tab-pane>
     </el-tabs>
   </el-dialog>
 </template>
@@ -101,4 +114,13 @@ export default {
   height: 500px;
   overflow-y: auto;
 }
+.imgSize{
+width: 100%;
+}
+.stepT{
+  font-weight: bold;
+    margin-bottom: 24px;
+    color: #000;
+}
+
 </style>
