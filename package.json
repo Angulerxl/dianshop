@@ -5,8 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "deploy": "gh-pages -d dist -r https://github.com/Angulerxl/dianshop.git -b gh-pages"
+    "deploy": "gh-pages -d dist -r https://github.com/Angulerxl/dianshop.git -b gh-pages",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.25.5",
