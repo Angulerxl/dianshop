@@ -62,7 +62,7 @@ export const _setDataFormat = (datas) => {
         }
       } else if(key === "商品图片网址"){
         // 图片太迷糊，放大
-        obj[enKey] = val.replace('_100x.', '_200x.');
+        obj[enKey] = val.replace('_100x.', '_300x.');
       } else {
         if (enKey) {
           obj[enKey] = val;
