@@ -2,6 +2,18 @@ import { _setKeyCnToEn } from "../utils/enum.js";
 import { cloneDeep as _cloneDeep, findIndex as _findIndex } from "lodash";
 import { _removeSizeSymbol, _setColor,_splitChangPingGuiGe, _setCnPatch,_setCnModel,_setCnSpecification} from "./basicConf.js";
 
+// 
+  export const _setDataFormatBefore = (datas) => {
+    const res =[]
+    datas.map(item=>{
+      for (const key in item) {
+        if(key === '订单标识' && item[key] === '无标识'){
+          res.push(item) 
+        }
+      }
+    })
+    return res
+  }
 //把excel表中文key转英文
 export const _setDataFormat = (datas) => {
   return datas.map((item) => {

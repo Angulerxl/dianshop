@@ -15,8 +15,10 @@
 </template>
 
 <script>
-import { _setDataFormat, _restoreDataFormat } from "./main";
+import { _setDataFormat, _restoreDataFormat, _setDataFormatBefore } from "./main";
 const xlsx = require("xlsx");
+const __win_data = JSON.parse(window.localStorage.getItem("__sys4-base")) || {};
+
 export default {
   data() {
     return {
@@ -104,7 +106,11 @@ export default {
         this.$message.error("请先导入数据");
         return;
       }
-      const arrs = this.setOneArrFormat();
+      let arrs = this.setOneArrFormat();
+      // 转格式之前先看有咩有开启过滤禁止处理的订单
+      if(__win_data.isFilterJZCL){
+        arrs = _setDataFormatBefore(arrs);
+      }
       const enArrs = _setDataFormat(arrs);
       const res = _restoreDataFormat(enArrs);
 
