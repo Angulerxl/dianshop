@@ -8,10 +8,10 @@ const emptyBottomTable = `<table>
 export const imgTable = ({ img, specStr }) => {
   return `<table border="1"  align="center" bgcolor="#e5e9f2">  
     <tr align="center" valign="center">
-        <td  height=160 width=180 align="center" valign="center"> <img src="https:${img}" width="140" height="140" /></td>
+        <td  height=200 width=200  align="center" valign="center"> <img src="https:${img}" width="160" height="160" /></td>
     </tr>
     <tr align="center">
-        <td width="180">${specStr}</td>
+        <td width="200">${specStr}</td>
     </tr>       
 </table>`;
 };
@@ -70,7 +70,7 @@ export const indexOrderTable = (i) => {
         <col span="1"style="">
       </colgroup>
     <tr align="center" valign="center">
-        <td  height=160 width=180 align="center" valign="center"  style="color:#fd0004;font-size: 72px;">${i}</td>
+        <td  height=200 width=200  align="center" valign="center"  style="color:#fd0004;font-size: 72px;">${i}</td>
     </tr>
     <tr align="center">
         <td>买家邮箱（${date}）</td>
@@ -120,7 +120,7 @@ export const orderTable = ({
             <col span="1"style="">
           </colgroup>
         <tr align="center" valign="center">
-            <td  height=160 width=180 align="center" valign="center"> <img src="https:${img}" height="140" /></td>
+            <td  height=200 width=200  align="center" valign="center"> <img src="https:${img}" height="160" /></td>
         </tr>
         <tr align="center">
             <td  >${buyerEmail}</td>
