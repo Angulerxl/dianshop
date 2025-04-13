@@ -8,7 +8,7 @@ const emptyBottomTable = `<table>
 export const imgTable = ({ img, specStr }) => {
   return `<table border="1"  align="center" bgcolor="#e5e9f2">  
     <tr align="center" valign="center">
-        <td  height=160 width=180 align="center" valign="center"> <img src="https:${img}" width="150" height="150" /></td>
+        <td  height=160 width=180 align="center" valign="center"> <img src="https:${img}" width="140" height="140" /></td>
     </tr>
     <tr align="center">
         <td width="180">${specStr}</td>
@@ -120,7 +120,7 @@ export const orderTable = ({
             <col span="1"style="">
           </colgroup>
         <tr align="center" valign="center">
-            <td  height=160 width=180 align="center" valign="center"> <img src="https:${img}" height="150" /></td>
+            <td  height=160 width=180 align="center" valign="center"> <img src="https:${img}" height="140" /></td>
         </tr>
         <tr align="center">
             <td  >${buyerEmail}</td>
