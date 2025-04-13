@@ -41,7 +41,7 @@ const getAll_goodsList = (datasAll) => {
 
 // 去掉no,No,With name and number
 const _formatSpec = (str)=>{
-  if(str === 'No' || str === 'no'){
+  if(str === 'No' || str === 'no' || str === 'onlyHasPatch'){
     return ''
   }
   return str
