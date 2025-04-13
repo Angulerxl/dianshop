@@ -60,6 +60,9 @@ export const _setDataFormat = (datas) => {
           // 补丁/规格
           obj['bdAndgg'] = obj["_customPatch"] || obj["_specification"]
         }
+      } else if(key === "商品图片网址"){
+        // 图片太迷糊，放大
+        obj[enKey] = val.replace('_100x.', '_200x.');
       } else {
         if (enKey) {
           obj[enKey] = val;

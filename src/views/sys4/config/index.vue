@@ -34,7 +34,7 @@
       <el-tab-pane :label="`使用教程`" name="step">
         <el-alert
           class="stepT"
-          title="订单号、产品规格、图片网址、产品总数、订单备注、买家账号、买家Email、买家留言、订单标记（处理打了禁止处理的单）"
+          title="订单号、产品规格、商品图片网址、产品总数、订单备注、买家账号、买家Email、买家留言、订单标记（处理打了禁止处理的单）"
           type="success"
           :closable="false">
         </el-alert>
