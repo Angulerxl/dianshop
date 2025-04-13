@@ -24,7 +24,6 @@
         </div>
       </el-tab-pane>
       <el-tab-pane :label="`其他`" name="orther">
-        <p>其他选项</p>
         <p>
           <span>是否过滤禁止处理订单：</span>
           <el-switch v-model="formData.isFilterJZCL" active-color="#13ce66">
@@ -33,8 +32,12 @@
         <el-button style="margin-left:20%" type="primary" @click="submit3()">保存</el-button>
       </el-tab-pane>
       <el-tab-pane :label="`使用教程`" name="step">
-        <p class="stepT">订单号、产品规格、图片网址、产品总数、订单备注、买家账号、买家Email、买家留言、订单标记（处理打了禁止处理的单）</p>
-       
+        <el-alert
+          class="stepT"
+          title="订单号、产品规格、图片网址、产品总数、订单备注、买家账号、买家Email、买家留言、订单标记（处理打了禁止处理的单）"
+          type="success"
+          :closable="false">
+        </el-alert>
         <img class="imgSize" src="@/assets/step/image0.png" alt="Dynamic Image">
         <img class="imgSize" src="@/assets/step/image1-0.png" alt="Dynamic Image">
         <img class="imgSize" src="@/assets/step/image1-1.png" alt="Dynamic Image">
@@ -44,6 +47,12 @@
         <img class="imgSize" src="@/assets/step/image4.png" alt="Dynamic Image">
         <img class="imgSize" src="@/assets/step/image5.png" alt="Dynamic Image">
         <img class="imgSize" src="@/assets/step/image6.png" alt="Dynamic Image">
+        <el-alert
+          title="其他流程也可以看："
+          type="info"
+          :closable="false">
+        </el-alert>
+        <img class="imgSize" src="@/assets/step/image10.png" alt="Dynamic Image">
 
       </el-tab-pane>
     </el-tabs>
