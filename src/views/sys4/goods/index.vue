@@ -29,7 +29,7 @@
           <i class="el-icon-download"></i>
           {{item.label}}
           <span v-if="_EXPORT_DATAS.doOrdersDataSource">
-            （{{_EXPORT_DATAS.doOrdersDataSource[item.valKey].length>0?'有':'无'}}）
+            （{{_EXPORT_DATAS.doOrdersDataSource[item.valKey].length>0?_EXPORT_DATAS.doOrdersDataSource[item.valKey].length:'无'}}）
           </span>
         </download-excel>
       </span>

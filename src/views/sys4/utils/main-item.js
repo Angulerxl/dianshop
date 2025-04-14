@@ -8,6 +8,7 @@ import {
   some as _some,
   includes as _includes,
   every as _every,
+  compact as _compact,
 } from "lodash";
 import { _setColor } from "../upload/basicConf.js";
 
@@ -62,6 +63,7 @@ export const _noCustomized = ({ orderDataSource }) => {
     const options = obj.specs; //正常对比的所有的规格
 
     const orderCode = [];
+    const _instructionOrderCode = []
     orderDataSource.map((item) => {
       //拿出所有商品的所有规格(去重)
       const goods = _map(item.goodsList, "spec");
@@ -75,18 +77,28 @@ export const _noCustomized = ({ orderDataSource }) => {
       });
       // console.log(result,'===22222',res)
       // console.log(options,'===',specOptions)
+      // 购买不定制的，又备注了定制信息
+      const _instructionList =_compact(_uniq(_map(item.goodsList, "_instruction")))
       if (result) {
-        orderCode.push(item.orderCode);
+        if(_instructionList.length>0){
+          _instructionOrderCode.push(item.orderCode)
+        }else{
+          orderCode.push(item.orderCode);
+        }
       }
     });
-    return orderCode;
+    return {
+      orderCode,
+      _instructionOrderCode
+    };
   };
-  const noCustOrderCodes = specFunc({
+  const noCustOrderCodesObj = specFunc({
     key: "sys4-noCustomized",
     orderDataSource,
   });
   return {
-    noCustOrderCodes: _uniq(noCustOrderCodes),
+    noCustOrderCodes: _uniq(noCustOrderCodesObj.orderCode),
+    noCustOrderCodesHasRemark:_uniq(noCustOrderCodesObj._instructionOrderCode)
   };
 };
 

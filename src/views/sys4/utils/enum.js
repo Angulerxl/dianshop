@@ -199,6 +199,12 @@ export const _BTNS = [
     label: "不定制", //不定制
     valKey: "_nocustomizedDataSource",
   },
+  {
+    value: "sys4-noCustomizedHasRemark",
+    specs: getKeys(_SPEC_nocustomized),
+    label: "人工审核：不定制+备注定制", //不定制
+    valKey: "_nocustomizedDataSourceHasRemark",
+  },
   //定制分为：普通定制（不需要买家自己备注名字号码）；定制人工有备注（买家自己备注名字号码）；定制人工没备注
   {
     value: "sys4-examine",

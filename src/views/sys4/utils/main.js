@@ -23,11 +23,15 @@ export const _allSpecDatas = (allDatasObj) => {
     _DATA_OBJ,
   });
   //-------------------先拿不定制的：规格是no\NO\'',但是不定制里会有备注了定制信息的（也要分出来）-------------------
-  const { noCustOrderCodes } = _noCustomized({
+  const { noCustOrderCodes,noCustOrderCodesHasRemark } = _noCustomized({
     orderDataSource: _DATA_OBJ.orderDataSource,
   });
   const _nocustomizedDataSource = getSpecData({
     codeArrs: noCustOrderCodes,
+    _DATA_OBJ,
+  });
+  const _nocustomizedDataSourceHasRemark = getSpecData({
+    codeArrs: noCustOrderCodesHasRemark,
     _DATA_OBJ,
   });
   //-------------------默认定制-------------------
@@ -40,6 +44,7 @@ export const _allSpecDatas = (allDatasObj) => {
     doOrdersDataSource: {
       _sameBuyerDataSource,
       _nocustomizedDataSource,
+      _nocustomizedDataSourceHasRemark,
       _examineDataSource,
     },
     flatDataSource: _DATA_OBJ.flatDataSource,
