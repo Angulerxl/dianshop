@@ -15,13 +15,16 @@ export const _allSpecDatas = (allDatasObj) => {
   const _DATA_OBJ = _cloneDeep(allDatasObj);
   // 数据是层层递减的哦,维护一个数据源orderDataSource，递减
   //-------------------相同的买家-------------------
-  const { moreCodesAndColor } = _getSameBuyer({
-    orderDataSource: _DATA_OBJ.orderDataSource,
-  });
-  const _sameBuyerDataSource = getSpecDataBuyer({
-    codeColorArrs: moreCodesAndColor,
-    _DATA_OBJ,
-  });
+  let _sameBuyerDataSource = []
+  if(__win_data['sameBuyerBUyMore']){
+    const { moreCodesAndColor } = _getSameBuyer({
+      orderDataSource: _DATA_OBJ.orderDataSource,
+    });
+    _sameBuyerDataSource = getSpecDataBuyer({
+      codeColorArrs: moreCodesAndColor,
+      _DATA_OBJ,
+    });
+  }
   //-------------------先拿不定制的：规格是no\NO\'',但是不定制里会有备注了定制信息的（也要分出来）-------------------
   const { noCustOrderCodes,noCustOrderCodesHasRemark } = _noCustomized({
     orderDataSource: _DATA_OBJ.orderDataSource,
@@ -30,6 +33,7 @@ export const _allSpecDatas = (allDatasObj) => {
     codeArrs: noCustOrderCodes,
     _DATA_OBJ,
   });
+  // 不定制写了备注
   const _nocustomizedDataSourceHasRemark = getSpecData({
     codeArrs: noCustOrderCodesHasRemark,
     _DATA_OBJ,

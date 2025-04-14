@@ -29,6 +29,11 @@
           <el-switch v-model="formData.isFilterJZCL" active-color="#13ce66">
           </el-switch>
         </p>
+        <p>
+          <span>是否开启同个买家购买多件：</span>
+          <el-switch v-model="formData.sameBuyerBUyMore" active-color="#13ce66">
+          </el-switch>
+        </p>
         <el-button style="margin-left:20%" type="primary" @click="submit3()">保存</el-button>
       </el-tab-pane>
       <el-tab-pane :label="`使用教程`" name="step">
@@ -72,6 +77,7 @@ export default {
   data() {
     return {
       formData: {
+        sameBuyerBUyMore: !_isEmpty(__win_data) && __win_data.sameBuyerBUyMore,
         isFilterJZCL: !_isEmpty(__win_data) && __win_data.isFilterJZCL,
         ndzSpec: !_isEmpty(__win_data) ? __win_data.ndzSpec : _SPEC_nocustomized, //不定制
         // dzSpec: !_isEmpty(__win_data) ? __win_data.dzSpec : [], //定制
@@ -118,6 +124,7 @@ export default {
     },
     submit3(){
       window.localStorage.setItem("__sys4-base", JSON.stringify(this.formData));
+      this.$message.success("配置成功");
     }
   },
 };

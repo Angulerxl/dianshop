@@ -80,7 +80,6 @@ export default {
   },
   data() {
     return {
-      downBtns: __win_data?.btns || [],
       checkAll: false,
       checkedIds: checkedIds,
       
@@ -99,7 +98,18 @@ export default {
       curStep:'3', // 3,4
     };
   },
-  computed: {},
+  computed: {
+    downBtns:()=>{
+      const btn = __win_data?.btns || []
+      if(!__win_data['sameBuyerBUyMore']){
+        const inx = _findIndex(btn,['value','sys4-sameBuyer'])
+        if(inx !== -1){
+          btn.splice(inx,1)
+        }
+      }
+      return btn
+    }
+  },
   methods: {
     onOk() {
       if (!this._EXPORT_DATAS.allOrderCodes) {

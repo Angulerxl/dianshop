@@ -11,6 +11,7 @@ export const _orderTabel = (dataObj, index = "1") => {
     _sameBuyerDataSource,
     _nocustomizedDataSource,
     _examineDataSource,
+    _nocustomizedDataSourceHasRemark,
   } = dataObj;
   const resObj = {
     // 同个买家下多个订单
@@ -21,6 +22,10 @@ export const _orderTabel = (dataObj, index = "1") => {
     //不定制
     _nocustomizedDataSource: setExcelTabel(
       getAll_goodsList(_nocustomizedDataSource),
+      index
+    ),
+    _nocustomizedDataSourceHasRemark: setExcelTabel(
+      getAll_goodsList(_nocustomizedDataSourceHasRemark),
       index
     ),
    //人工审核
