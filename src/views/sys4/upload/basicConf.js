@@ -92,15 +92,17 @@ export const _splitChangPingGuiGe = (str)=> {
 // 配置中文的补丁
 export const _setCnPatch = (str)=>{
   if(!str || str ==='No' || str ==='no') return ''
-  let res = ''
-  const inx = _findIndex(_patchOpts,['value',str])
-  if(inx === -1){
-    res = str
-  }else{
-    res = _patchOpts[inx].label
+  if(__win_data.isPathUseEN){
+    let res = ''
+    const inx = _findIndex(_patchOpts,['value',str])
+    if(inx === -1){
+      res = str
+    }else{
+      res = _patchOpts[inx].label
+    }
+    return res
   }
-
-  return res
+  return str
 }
 
 // 配置中文的套装

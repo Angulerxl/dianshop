@@ -34,6 +34,11 @@
           <el-switch v-model="formData.sameBuyerBUyMore" active-color="#13ce66">
           </el-switch>
         </p>
+        <p>
+          <span>补丁是否使用中文：</span>
+          <el-switch v-model="formData.isPathUseEN" active-color="#13ce66">
+          </el-switch>
+        </p>
         <el-button style="margin-left:20%" type="primary" @click="submit3()">保存</el-button>
       </el-tab-pane>
       <el-tab-pane :label="`使用教程`" name="step">
@@ -73,10 +78,11 @@ export default {
   components: {
     SpecTable,
   },
-  props: ["dialogVisible"],
+  props: ["dialogVisible"],   
   data() {
     return {
       formData: {
+        isPathUseEN: !_isEmpty(__win_data) && __win_data.isPathUseEN,
         sameBuyerBUyMore: !_isEmpty(__win_data) && __win_data.sameBuyerBUyMore,
         isFilterJZCL: !_isEmpty(__win_data) && __win_data.isFilterJZCL,
         ndzSpec: !_isEmpty(__win_data) ? __win_data.ndzSpec : _SPEC_nocustomized, //不定制
