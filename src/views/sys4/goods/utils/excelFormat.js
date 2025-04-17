@@ -38,12 +38,6 @@ export const emptyLeftTable = `<table  align="center" >
     <td ></td>
 </tr>
 <tr align="center">
-    <td ></td>
-</tr>
-<tr align="center">
-    <td></td>
-</tr>
-<tr align="center">
     <td></td>
 </tr>
 <tr align="center">
@@ -73,19 +67,13 @@ export const indexOrderTable = (i) => {
         <td  height=200 width=200  align="center" valign="center"  style="color:#fd0004;font-size: 72px;">${i}</td>
     </tr>
     <tr align="center">
-        <td>买家邮箱（${date}）</td>
-    </tr>
-    <tr align="center">
         <td>买家</td>
     </tr>
     <tr align="center">
-        <td  >名字</td>
+        <td>购买选项</td>
     </tr>
     <tr align="center">
-        <td>号码</td>
-    </tr>
-    <tr align="center">
-        <td>备注(名字号码)</td>
+        <td>客户备注定制</td>
     </tr>
     <tr align="center">
         <td>补丁/规格</td>
@@ -123,18 +111,12 @@ export const orderTable = ({
             <td  height=200 width=200  align="center" valign="center"> <img src="https:${img}" height="160" /></td>
         </tr>
         <tr align="center">
-            <td  >${buyerEmail}</td>
-        </tr>
-        <tr align="center">
             <td  style="background-color:${
               sBuyColor || textColor
             }">${business}</td>
         </tr>
         <tr align="center">
             <td  >${spec}</td>
-        </tr>
-        <tr align="center">
-            <td style="color:green">${DZnumber}</td>
         </tr>
          <tr align="center">
             <td style="color:green">${_instruction}</td>
