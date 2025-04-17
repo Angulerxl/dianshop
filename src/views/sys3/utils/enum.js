@@ -123,6 +123,18 @@ export const _SIZE = [
   {
     value: "XXL",
   },
+  {
+    value: "XXXL",
+  },
+  {
+    value: "XXXXL",
+  },
+  {
+    value: "3XL",
+  },
+  {
+    value: "4XL",
+  },
   // {
   //   value: "S=P",
   // },
