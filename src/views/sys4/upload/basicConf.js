@@ -44,7 +44,7 @@ export const _setColor = () => {
 // 分切产品规格的数据
 //Size-尺寸， Specification-套装， CUSTOM PATCH-补丁， MODEL-袜子(值就是尺寸)，Custom Items-定制，Instruction-备注
 export const _splitChangPingGuiGe = (str)=> {
-    str = str.replaceAll('Other(Add In The Instruction)','随机球星')
+    str = str.replaceAll('Other(Add In The Instruction)','With name and number')
     const keywords = ['Size', 'Specification', 'CUSTOM PATCH', 'Custom Patch', 'MODEL', 'Custom Items', 'Instruction'];
     const positions = [];
     const resultObj = {};
