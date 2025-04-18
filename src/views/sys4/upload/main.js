@@ -7,7 +7,7 @@ import { _removeSizeSymbol, _setColor,_splitChangPingGuiGe, _setCnPatch,_setCnMo
     const res =[]
     datas.map(item=>{
       for (const key in item) {
-        if(key === '订单标识' && item[key] === '无标识'){
+        if(key === '订单标记' && (item[key] === '无标识' || item[key] === '')){
           res.push(item) 
         }
       }
