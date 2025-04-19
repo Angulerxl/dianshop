@@ -22,7 +22,7 @@
       <!-- <download-excel :ref="`download`" :class="['export-img doOrder']" :data="orderExport.data || []" :name="orderExport.name">
           {{item.label}}
         </download-excel> -->
-
+        <div class="line"></div>
       <span v-for="item in downBtns" :key="item.value">
         <download-excel :ref="`download`" :class="['export-img doOrder']" :data="orderExportObj[item.valKey] || []"
                         :name="`${fileName}做单--${item.label}-${timer}.xlsx`">
@@ -218,5 +218,11 @@ export default {
 :deep(.el-input__inner) {
   border: 1px solid #409eff;
 }
-
+.line{
+  margin-left: 50px;
+  margin-right: 20px;
+  width: 1px;
+  height: 36px;
+  background-color: #DCDFE6;
+  }
 </style>
