@@ -39,7 +39,8 @@
           <el-switch v-model="formData.isPathUseEN" active-color="#13ce66">
           </el-switch>
         </p>
-        <el-button style="margin-left:20%" type="primary" @click="submit3()">保存</el-button>
+        <el-button style="margin-left:20%;margin-bottom: 34px;" type="primary" @click="submit3()">保存</el-button>
+        <img class="imgSize" src="@/assets/step/image11.png" alt="Dynamic Image">
       </el-tab-pane>
       <el-tab-pane :label="`使用教程`" name="step">
         <p>小秘配置选项：9个 </p>
