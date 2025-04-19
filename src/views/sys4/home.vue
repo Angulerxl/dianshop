@@ -12,7 +12,7 @@
     <div class="zdy-ipt">
 
 下载文件名: <el-input :clear="true" size="small" style="width: 240px;margin-right:16px" v-model="fileName" placeholder="下载文件名"></el-input>
-excel的索引： <el-input size="small" style="width: 60px" v-model="startIndex" placeholder="开始索引,默认1"></el-input>
+<!-- excel的索引： <el-input size="small" style="width: 60px" v-model="startIndex" placeholder="开始索引,默认1"></el-input> -->
 </div>
   </div>
 </template>

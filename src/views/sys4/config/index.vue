@@ -66,7 +66,7 @@
           :closable="false">
         </el-alert>
         <img class="imgSize" src="@/assets/step/image10.png" alt="Dynamic Image">
-
+        <img class="imgSize" src="@/assets/step/image10-1.png" alt="Dynamic Image">
       </el-tab-pane>
     </el-tabs>
   </el-dialog>

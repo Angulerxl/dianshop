@@ -8,12 +8,12 @@
     </el-checkbox-group> -->
 
     <div class="main-btn">
-      第三步：<el-button class="main-btn1" type="success" @click="onOk">导出excel</el-button>
+      第三步：<el-button class="main-btn1" type="success" @click="onOk">{{buttonText}}</el-button>
     </div>
     <el-divider></el-divider>
     <!-- ---------- -->
     第四步：
-    <span slot="footer" class="dialog-footer" v-if="curStep === '4'">
+    <span slot="footer" class="dialog-footer" >
       <el-button class="order-sn" size="small" type="info" @click="exportSn">
         <i class="el-icon-download"></i>单号汇总</el-button>
       <download-excel :ref="`download-img`" :class="['export-img img']" :data="imgExport.data || []" :name="imgExport.name">
@@ -24,6 +24,7 @@
         </download-excel> -->
         <div class="line"></div>
       <span v-for="item in downBtns" :key="item.value">
+        <el-input size="small" style="width: 80px" v-model="item.startIdx" placeholder="开始索引,默认1"></el-input>
         <download-excel :ref="`download`" :class="['export-img doOrder']" :data="orderExportObj[item.valKey] || []"
                         :name="`${fileName}做单--${item.label}-${timer}.xlsx`">
           <i class="el-icon-download"></i>
@@ -82,7 +83,7 @@ export default {
     return {
       checkAll: false,
       checkedIds: checkedIds,
-      
+      buttonText: '导出excel：1、下载之前先填顺序 2、再点我生成下载数据',
       timer: "",
       
       imgExport: {
@@ -96,19 +97,32 @@ export default {
       },
       orderExportObj: {},
       curStep:'3', // 3,4
+      downBtns:[]
     };
   },
-  computed: {
-    downBtns:()=>{
-      const btn = __win_data?.btns || []
+  // computed: {
+  //   downBtns:()=>{
+  //     const btn = __win_data?.btns || []
+  //     if(!__win_data['sameBuyerBUyMore']){
+  //       const inx = _findIndex(btn,['value','sys4-sameBuyer'])
+  //       if(inx !== -1){
+  //         btn.splice(inx,1)
+  //       }
+  //     }
+  //     return btn
+  //   }
+  // },
+  mounted(){
+    const btn = __win_data?.btns || []
       if(!__win_data['sameBuyerBUyMore']){
         const inx = _findIndex(btn,['value','sys4-sameBuyer'])
         if(inx !== -1){
           btn.splice(inx,1)
         }
       }
-      return btn
-    }
+      this.downBtns =  btn.map(item=>{
+      return {...item,startIdx:'1'}
+    })
   },
   methods: {
     onOk() {
@@ -126,7 +140,8 @@ export default {
     exportOrders() {
       this.orderExportObj = _exportOrder(
         this._EXPORT_DATAS.doOrdersDataSource,
-        this.startIndex
+        this.downBtns
+        // this.startIndex
       );
     },
     //-----------------导出报货-----------------

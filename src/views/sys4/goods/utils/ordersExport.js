@@ -1,12 +1,14 @@
 import {
   find as _find,
+  findIndex as _findIndex,
   chunk as _chunk,
   flatten as _flatten,
   cloneDeep as _cloneDeep,
+  isEmpty as _isEmpty,
 } from "lodash";
 import { indexOrderTable, orderTable, emptyLeftTable } from "./excelFormat";
 
-export const _orderTabel = (dataObj, index = "1") => {
+export const _orderTabel = (dataObj, downBtns) => {
   const {
     _sameBuyerDataSource,
     _nocustomizedDataSource,
@@ -14,30 +16,40 @@ export const _orderTabel = (dataObj, index = "1") => {
     _nocustomizedDataSourceHasRemark,
     _examineDataSourceHasNoRemark
   } = dataObj;
+  let s_idx = 1
+  const sObj = _find(downBtns,['valKey','_sameBuyerDataSource'])
+  if(!_isEmpty(sObj)){
+    s_idx = sObj['startIdx']
+  }
+  const n_idx0 = _find(downBtns,['valKey','_nocustomizedDataSource'])['startIdx'] || 1
+  const n_idx1 = _find(downBtns,['valKey','_nocustomizedDataSourceHasRemark'])['startIdx'] || 1
+  const e_idx0 = _find(downBtns,['valKey','_examineDataSourceHasNoRemark'])['startIdx'] || 1
+  const e_idx1 = _find(downBtns,['valKey','_examineDataSource'])['startIdx'] || 1
+
   const resObj = {
     // 同个买家下多个订单
     _sameBuyerDataSource: setExcelTabel(
       getAll_goodsList(_sameBuyerDataSource),
-      index
+      s_idx
     ),
     //不定制
     _nocustomizedDataSource: setExcelTabel(
       getAll_goodsList(_nocustomizedDataSource),
-      index
+      n_idx0
     ),
     _nocustomizedDataSourceHasRemark: setExcelTabel(
       getAll_goodsList(_nocustomizedDataSourceHasRemark),
-      index
+      n_idx1
     ),
     //定制，没备注定制信息
     _examineDataSourceHasNoRemark: setExcelTabel(
       getAll_goodsList(_examineDataSourceHasNoRemark),
-      index
+      e_idx0
     ),
    //人工审核
     _examineDataSource: setExcelTabel(
       getAll_goodsList(_examineDataSource),
-      index
+      e_idx1
     ),
   };
   // console.log(resObj, "--textColor");
