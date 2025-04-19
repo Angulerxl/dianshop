@@ -9,6 +9,8 @@ import {
   includes as _includes,
   every as _every,
   compact as _compact,
+  has as _has,
+  isEmpty as _isEmpty,
 } from "lodash";
 import { _setColor } from "../upload/basicConf.js";
 
@@ -136,11 +138,12 @@ export const _customized_default = ({ orderDataSource }) => {
 export const _examine_hasRemark = ({ orderDataSource }) => {
   const examine_hasRemark_Codes = [];
   orderDataSource.map((item) => {
-    if (item.orderRemark) {
+    const result =  _some(item.goodsList, (obj) => _has(obj, '_instruction') &&!_isEmpty(obj['_instruction']));
+    if (!item.orderRemark && !result) {
       examine_hasRemark_Codes.push(item.orderCode);
     }
   });
   return {
-    examineHasRemarkCodes: _uniq(examine_hasRemark_Codes),
+    examineHasNoRemarkCodes: _uniq(examine_hasRemark_Codes),
   };
 };

@@ -218,13 +218,18 @@ export const _BTNS = [
   {
     value: "sys4-noCustomizedHasRemark",
     specs: getKeys(_SPEC_nocustomized),
-    label: "人工审核：不定制+备注定制", //不定制
+    label: "不定制+备注定制信息", //不定制
     valKey: "_nocustomizedDataSourceHasRemark",
   },
   //定制分为：普通定制（不需要买家自己备注名字号码）；定制人工有备注（买家自己备注名字号码）；定制人工没备注
   {
     value: "sys4-examine",
-    label: "人工审核", //定制人工的单，同时没备注
+    label: "定制", //定制人工的单，同时没备注
     valKey: "_examineDataSource",
+  },
+  {
+    value: "sys4-examineHasNoRemark",
+    label: "定制+缺少定制信息", //定制确没备注定制信息
+    valKey: "_examineDataSourceHasNoRemark",
   },
 ];

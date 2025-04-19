@@ -2,6 +2,7 @@ import { cloneDeep as _cloneDeep, findIndex as _findIndex } from "lodash";
 import {
   _getSameBuyer,
   _noCustomized,
+  _examine_hasRemark
 } from "./main-item.js";
 const __win_data = JSON.parse(window.localStorage.getItem("__sys4-base"));
 
@@ -40,8 +41,16 @@ export const _allSpecDatas = (allDatasObj) => {
   });
   //-------------------默认定制-------------------
   //-------------------人工定制有备注-------------------
-  //找不到的:统一归为定制没备注
-  // 改了，定制全都人工审核一遍
+  //定制里，但是没写订单备注和客人备注定制姓名号码的，统一为定制没备注
+  // 定制没备注？？？
+  const { examineHasNoRemarkCodes } = _examine_hasRemark({
+    orderDataSource: _DATA_OBJ.orderDataSource,
+  });
+  const _examineDataSourceHasNoRemark = getSpecData({
+    codeArrs: examineHasNoRemarkCodes,
+    _DATA_OBJ,
+  });
+    // 改了，定制全都人工审核一遍
   const _examineDataSource = _DATA_OBJ.orderDataSource;
 
   const obj = {
@@ -50,6 +59,7 @@ export const _allSpecDatas = (allDatasObj) => {
       _nocustomizedDataSource,
       _nocustomizedDataSourceHasRemark,
       _examineDataSource,
+      _examineDataSourceHasNoRemark
     },
     flatDataSource: _DATA_OBJ.flatDataSource,
     allOrderCodes: _DATA_OBJ.allOrderCodes,
@@ -60,7 +70,7 @@ export const _allSpecDatas = (allDatasObj) => {
 //需要跳出的订单codeArrs，然后原来的数据源删掉跳出的订单，上面单号循环，能保证时间顺序
 const getSpecData = ({ codeArrs, _DATA_OBJ }) => {
   const myDatas = [];
-  codeArrs.map((item) => {
+  codeArrs?.map((item) => {
     const inx = _findIndex(_DATA_OBJ.orderDataSource, ["orderCode", item]);
     if (inx !== -1) {
       myDatas.push(_DATA_OBJ.orderDataSource[inx]);
