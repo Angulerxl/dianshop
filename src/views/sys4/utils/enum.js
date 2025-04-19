@@ -50,6 +50,10 @@ export const _SPEC_customized_rengong = [
 ];
 export const _SPEC_nocustomized = [
   {
+    value: "NO",
+    label: "不定制",
+  },
+  {
     value: "No",
     label: "不定制",
   },

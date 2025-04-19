@@ -50,7 +50,7 @@ export const _setDataFormat = (datas) => {
           obj["_customPatch"] = _setCnPatch(strObj['customPatch'])
           //重要，只有补丁，没有定制信息和号码，也算是定制
           // 所以要加一个判断
-          if(obj["spec"] === 'No' || obj["spec"] === 'no' ||obj["spec"] === ''){
+          if(obj["spec"] === 'NO' || obj["spec"] === 'No'  || obj["spec"] === 'no' ||obj["spec"] === ''){
             if(obj["_customPatch"]){
               obj["spec"]='onlyHasPatch'// 有补丁
             }

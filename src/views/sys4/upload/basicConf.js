@@ -84,7 +84,7 @@ export const _splitChangPingGuiGe = (str)=> {
         value = value.replace(':', '');
         resultObj[current.keyword] = value;
     }
-
+    
     return resultObj;
 
 }
@@ -92,7 +92,7 @@ export const _splitChangPingGuiGe = (str)=> {
 
 // 配置中文的补丁
 export const _setCnPatch = (str)=>{
-  if(!str || str ==='No' || str ==='no') return ''
+  if(!str || str ==='NO' || str ==='No' || str ==='no') return ''
   if(__win_data.isPathUseEN){
     let res = ''
     const inx = _findIndex(_patchOpts,['value',str])
