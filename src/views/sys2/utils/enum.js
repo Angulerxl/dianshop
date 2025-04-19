@@ -6,7 +6,7 @@ export const _setKeyCnToEn = {
   商品尺寸: "size", //独立多次，没有，自己后面组装的
   产品数量: "number", //独立多次
   图片网址: "imgUrl", //独立多次
-  //   订单标记: "mark",
+  //   订单标识: "mark",
   买家账号: "buyerAccount",
   店铺账号: "storeName",
   //   买家留言: "buyerLiuyan",

@@ -42,10 +42,12 @@
         <el-button style="margin-left:20%" type="primary" @click="submit3()">保存</el-button>
       </el-tab-pane>
       <el-tab-pane :label="`使用教程`" name="step">
+        <p>小秘配置选项：9个 </p>
         <el-alert
+          style="margin-bottom: 20px;"
           class="stepT"
-          title="订单号、产品规格、商品图片网址、产品总数、订单备注、买家账号、买家Email、买家留言、订单标记（处理打了禁止处理的单）"
-          type="success"
+          title="订单号、产品规格、商品图片网址、产品总数、订单备注、买家账号、买家Email、买家留言、订单标识"
+          type="error"
           :closable="false">
         </el-alert>
         <img class="imgSize" src="@/assets/step/image0.png" alt="Dynamic Image">
