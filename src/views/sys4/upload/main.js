@@ -1,9 +1,15 @@
 import { _setKeyCnToEn } from "../utils/enum.js";
-import { cloneDeep as _cloneDeep, findIndex as _findIndex } from "lodash";
+import { cloneDeep as _cloneDeep, findIndex as _findIndex,some as _some,has as _has } from "lodash";
 import { _removeSizeSymbol, _setColor,_splitChangPingGuiGe, _setCnPatch,_setCnModel,_setCnSpecification} from "./basicConf.js";
 
 // 
   export const _setDataFormatBefore = (datas) => {
+    // 有些小秘没加订单标识，兼容一下
+    const result = _some(datas, (obj) => _has(obj, '订单标识'));
+    if(!result){
+      return datas
+    }
+
     const res =[]
     datas.map(item=>{
       for (const key in item) {

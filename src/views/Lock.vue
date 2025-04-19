@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     login() {
-      if (this.input === '身体健康第一位') {
+      if (this.input === 'admin88') {
         this.islock = true
         sessionStorage.setItem('isShopLock', true)
         this.$message({
