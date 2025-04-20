@@ -8,7 +8,7 @@
     </el-checkbox-group> -->
 
     <div class="main-btn">
-      第三步：<el-button class="main-btn1" type="success" @click="onOk">{{buttonText}}</el-button>
+      第三步：<el-button class="main-btn1" style="color: #000000;font-weight: bolder;font-size: 16px;" type="success" @click="onOk">{{buttonText}}</el-button>
     </div>
     <el-divider></el-divider>
     <!-- ---------- -->

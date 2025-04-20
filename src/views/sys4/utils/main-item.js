@@ -11,6 +11,7 @@ import {
   compact as _compact,
   has as _has,
   isEmpty as _isEmpty,
+  toLower as _toLower,
 } from "lodash";
 import { _setColor } from "../upload/basicConf.js";
 
@@ -138,8 +139,14 @@ export const _customized_default = ({ orderDataSource }) => {
 export const _examine_hasRemark = ({ orderDataSource }) => {
   const examine_hasRemark_Codes = [];
   orderDataSource.map((item) => {
-    const result =  _some(item.goodsList, (obj) => _has(obj, '_instruction') &&!_isEmpty(obj['_instruction']));
-    if (!item.orderRemark && !result) {
+    // 判断有咩有定制信息
+    const res_spec = _some(item.goodsList, item => {
+      const spec = _toLower(item.spec);
+      return spec!== 'no' && spec!== '';
+  });
+  // 判断有咩有备注定制信息
+    const res_instruction =  _some(item.goodsList, (obj) => _has(obj, '_instruction') &&!_isEmpty(obj['_instruction']));
+    if (!item.orderRemark && !res_instruction && !res_spec) {
       examine_hasRemark_Codes.push(item.orderCode);
     }
   });
